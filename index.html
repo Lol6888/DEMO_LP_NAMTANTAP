@@ -21,7 +21,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #fff;
-            overflow-x: hidden; /* Chống vỡ layout ngang */
+            overflow-x: hidden; 
         }
         .container {
             width: 90%;
@@ -60,7 +60,6 @@
              margin-left: auto;
              margin-right: auto;
         }
-        /* Nền xám xen kẽ */
         section:nth-of-type(even) {
             background-color: #f9f9f9;
         }
@@ -82,6 +81,14 @@
         }
         .image-placeholder::after {
             content: 'Hình ảnh của bạn ở đây';
+        }
+        
+        /* --- Style cho hình ảnh thật (ĐÃ THÊM) --- */
+        .real-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         /* --- Nút (Button) Chung --- */
@@ -128,7 +135,7 @@
             position: relative; 
         }
         .header .logo img {
-            height: 55px; /* Logo lớn */
+            height: 55px; 
             vertical-align: middle;
         }
         .header .nav-links {
@@ -146,7 +153,7 @@
         .header .nav-links a {
             color: #333; 
             font-weight: bold;
-            font-size: 0.95rem; /* Menu nhỏ hơn logo */
+            font-size: 0.95rem; 
             white-space: nowrap; 
         }
         .header .nav-links a:hover {
@@ -418,12 +425,22 @@
             text-align: right;
             white-space: nowrap;
         }
+        .connect-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
         /* --- 8. Quy hoạch phân khu --- */
-        .planning-image .image-placeholder {
-            min-height: 500px;
+        .planning-image img {
+            width: 100%;
             max-width: 1000px;
+            height: auto;
+            border-radius: 8px;
             margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         /* --- 9. Dịch vụ tiện ích --- */
@@ -604,7 +621,7 @@
         }
 
         /* ==============================================
-        === BỔ SUNG MEDIA QUERIES ĐỂ SỬA VỠ LAYOUT ===
+        === MEDIA QUERIES ĐỂ SỬA VỠ LAYOUT ===
         ==============================================
         */
         
@@ -612,19 +629,19 @@
             
             /* --- Sửa Header --- */
             .header .nav-links {
-                position: static; /* Hủy bỏ căn giữa tuyệt đối */
+                position: static; 
                 transform: none;
-                width: 100%; /* Chiếm toàn bộ chiều ngang */
-                order: 3; /* Đẩy xuống dưới Logo và Nút */
+                width: 100%; 
+                order: 3; 
                 padding-top: 15px;
                 border-top: 1px solid #eee;
                 margin-top: 15px;
             }
             .header .nav-links ul {
-                justify-content: center; /* Căn giữa menu */
+                justify-content: center; 
             }
             .header .container {
-                flex-wrap: wrap; /* Cho phép rớt dòng */
+                flex-wrap: wrap; 
                 justify-content: space-between;
             }
             .header .logo {
@@ -637,7 +654,7 @@
             /* --- Sửa các layout 2-3 cột --- */
             .hero-stats,
             .icon-stats {
-                grid-template-columns: 1fr 1fr; /* 2 cột */
+                grid-template-columns: 1fr 1fr; 
             }
             .slide-content h1 { font-size: 2.5rem; }
             .slide-content h2 { font-size: 2rem; }
@@ -647,29 +664,35 @@
             .connect-grid,
             .legal-grid,
             .contact-container {
-                grid-template-columns: 1fr; /* 1 cột */
-                flex-direction: column; /* 1 cột */
+                grid-template-columns: 1fr; 
+                flex-direction: column; 
                 gap: 30px;
             }
             .client-grid,
             .amenities-list {
-                grid-template-columns: 1fr 1fr; /* 2 cột */
+                grid-template-columns: 1fr 1fr; 
             }
             .footer-grid {
-                grid-template-columns: 1fr 1fr; /* 2 cột */
+                grid-template-columns: 1fr 1fr; 
             }
             .services-text {
-                order: 1; /* Đảo ngược thứ tự cho đẹp */
+                order: 1; 
             }
             .services-image {
                 order: 2;
+            }
+            .connect-text {
+                order: 2;
+            }
+            .connect-image {
+                order: 1;
             }
         }
         
         @media (max-width: 767px) {
             /* --- Sửa cho điện thoại --- */
             .header .nav-links li {
-                margin: 0 10px; /* Thu hẹp khoảng cách menu */
+                margin: 0 10px; 
             }
              .header .nav-links a {
                 font-size: 0.85rem;
@@ -683,7 +706,7 @@
             .connect-tables,
             .services-grid,
             .footer-grid {
-                grid-template-columns: 1fr; /* 1 cột */
+                grid-template-columns: 1fr; 
             }
         }
 
@@ -694,7 +717,7 @@
     <header class="header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo-sgt.png" alt="Saigontel Logo">
+                <img src="images/logo-sgt.png" alt="Saigontel Logo">
             </a>
             
             <nav class="nav-links">
@@ -717,8 +740,7 @@
 
     <main>
         <section class="hero">
-            <div class="slide" id="slide-1" style="opacity: 1;">
-                <div class="image-placeholder" style="position: absolute; width: 100%; height: 100%; z-index: -1;">(Hình ảnh Cổng chào)</div>
+            <div class="slide" id="slide-1" style="background-image: url('images/congchaonamtantap.jpg'); opacity: 1;">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <h1>KHU CÔNG NGHIỆP NAM TÂN TẬP</h1>
@@ -744,8 +766,7 @@
                 </div>
             </div>
             
-            <div class="slide" id="slide-2">
-                <div class="image-placeholder" style="position: absolute; width: 100%; height: 100%; z-index: -1;">(Hình ảnh 3D nhà xưởng & container)</div>
+            <div class="slide" id="slide-2" style="background-image: url('images/nhaxuongvaconterner.jpg');">
                  <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <h2>Tổ hợp sản xuất xanh và logistics thông minh</h2>
@@ -841,7 +862,7 @@
                         </div>
                     </div>
                     <div class="services-image">
-                        <div class="image-placeholder">(Hình ảnh mục Sản phẩm & Dịch vụ)</div>
+                        <img src="images/sanphamdichvu.png" alt="Sản phẩm và Dịch vụ" class="real-image">
                     </div>
                 </div>
             </div>
@@ -911,7 +932,7 @@
                          </div>
                     </div>
                      <div class="connect-image">
-                        <div class="image-placeholder" style="min-height: 550px;">(Hình ảnh bản đồ kết nối vùng)</div>
+                        <img src="images/ketnoivung.png" alt="Bản đồ kết nối vùng Nam Tân Tập" class="real-image">
                     </div>
                 </div>
             </div>
@@ -921,7 +942,7 @@
             <div class="container">
                 <h2 class="section-title text-center">Quy Hoạch Phân Khu</h2>
                 <div class="planning-image">
-                    <div class="image-placeholder">(Hình ảnh tổng mặt bằng Nam Tân Tập)</div>
+                    <img src="images/matbangnamtantap.png" alt="Quy hoạch tổng mặt bằng Nam Tân Tập" class="real-image">
                 </div>
             </div>
         </section>
@@ -956,9 +977,9 @@
             <div class="container">
                 <h2 class="section-title text-center">Ưu Đãi Đầu Tư</h2>
                 <p class="section-subtitle text-center placeholder-section-content">
-                    (Nội dung mục ưu đãi đầu tư giữ nguyên theo yêu cầu "ok giữ như thế").
+                    (Nội dung mục ưu đãi đầu tư giữ nguyên theo yêu cầu).
                 </p>
-                </div>
+            </div>
         </section>
         
         <section id="partners" class="partners-section">
@@ -967,7 +988,7 @@
                 <p class="section-subtitle text-center placeholder-section-content">
                     (Nội dung mục khách hàng hiện hữu, cần cập nhật tên khách hàng cho đúng).
                 </p>
-                <div class="image-placeholder" style="min-height: 150px;">(Logo các khách hàng)</div>
+                <img src="images/doitac.png" alt="Các đối tác của Nam Tân Tập" class="real-image" style="max-width: 800px; margin: 0 auto; display: block;">
             </div>
         </section>
 
@@ -1055,7 +1076,7 @@
         <div class="container footer-grid">
             <div class="footer-col">
                 <a href="#" class="logo">
-                     <img src="logo-sgt.png" alt="Saigontel Logo Footer">
+                     <img src="images/logo-sgt.png" alt="Saigontel Logo Footer">
                 </a>
             </div>
             <div class="footer-col">
@@ -1134,5 +1155,4 @@
     </script>
 
 </body>
-
 </html>
